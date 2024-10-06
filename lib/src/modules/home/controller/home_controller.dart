@@ -16,7 +16,7 @@ abstract class _HomeControllerBase with Store {
   String errorMessage = '';
 
   @observable
-  bool isLoading = false; // Adiciona o estado de carregamento
+  bool isLoading = false;
 
   @observable
   ObservableList<Map<String, dynamic>> addressHistory = ObservableList.of([]);
@@ -24,7 +24,7 @@ abstract class _HomeControllerBase with Store {
   @action
   Future<void> searchAddress(String cep) async {
     try {
-      isLoading = true; // Começa o carregamento
+      isLoading = true;
       final result = await service.searchAddress(cep);
       if (result != null) {
         address = result;
@@ -35,7 +35,7 @@ abstract class _HomeControllerBase with Store {
     } catch (e) {
       errorMessage = 'Erro ao buscar endereço';
     } finally {
-      isLoading = false; // Termina o carregamento
+      isLoading = false;
     }
   }
 }

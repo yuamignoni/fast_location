@@ -11,6 +11,6 @@ abstract class _HistoryControllerBase with Store {
 
   @action
   void loadHistory() {
-    history = StorageService.getAllAddresses();  // Carregar todos os endereços
+    history = StorageService.getAllAddresses();
   }
 }

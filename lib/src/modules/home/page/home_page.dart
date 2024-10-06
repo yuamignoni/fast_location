@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
             Observer(
               builder: (_) {
                 if (controller.isLoading) {
-                  return const CircularProgressIndicator(); // Exibe o loading enquanto a consulta está em andamento
+                  return const CircularProgressIndicator();
                 }
 
                 if (controller.address != null) {
@@ -48,11 +48,10 @@ class HomePage extends StatelessWidget {
                   );
                 }
 
-                return Container(); // Retorna um container vazio se não há dados ou erro
+                return Container();
               },
             ),
             const SizedBox(height: 16),
-            // Aqui está o Expanded para preencher o restante do espaço com a lista
             Expanded(
               child: Observer(
                 builder: (_) {

@@ -9,7 +9,6 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Carregar o histórico ao abrir a página
     controller.loadHistory();
 
     return Scaffold(
@@ -21,16 +20,14 @@ class HistoryPage extends StatelessWidget {
           return ListView.builder(
             itemCount: controller.history.length,
             itemBuilder: (context, index) {
-              // Acessar uma chave do Map, como 'logradouro' ou 'cep'
               final address = controller.history[index];
               final logradouro =
                   address['logradouro'] ?? 'Endereço desconhecido';
               final cep = address['cep'] ?? 'CEP não encontrado';
 
               return ListTile(
-                title: Text(logradouro), // Exibir o logradouro ou outro campo
-                subtitle:
-                    Text('CEP: $cep'), // Opcional: Exibir o CEP como subtítulo
+                title: Text(logradouro),
+                subtitle: Text('CEP: $cep'),
               );
             },
           );

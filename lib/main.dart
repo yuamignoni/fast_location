@@ -7,9 +7,8 @@ import 'package:fastlocation/src/shared/storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Iniciar Hive sem path_provider para plataformas desktop
-  await Hive.initFlutter(); // Inicializa o Hive sem path_provider
-  await StorageService.init(); // Inicializar armazenamento Hive
+  await Hive.initFlutter();
+  await StorageService.init();
 
   runApp(const FastLocationApp());
 }
@@ -24,8 +23,7 @@ class FastLocationApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          const MainScreen(), // Inicia com MainScreen que contém a BottomNavigationBar
+      home: const MainScreen(),
     );
   }
 }
@@ -38,12 +36,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0; // Índice da página atual
+  int _currentIndex = 0;
 
-  // Lista de páginas para alternar entre HomePage e HistoryPage
   final List<Widget> _pages = [
-    HomePage(), // Página de pesquisa de CEP
-    HistoryPage(), // Página de histórico de consultas
+    HomePage(),
+    HistoryPage(),
   ];
 
   @override
@@ -52,14 +49,12 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('FastLocation'),
       ),
-      body: _pages[
-          _currentIndex], // Exibe a página correspondente ao índice atual
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex, // Índice da página atual
+        currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
-            _currentIndex =
-                index; // Atualiza o índice para a página selecionada
+            _currentIndex = index;
           });
         },
         items: const [

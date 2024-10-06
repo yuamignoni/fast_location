@@ -27,12 +27,10 @@ class LastAddressComponent extends StatelessWidget {
             if (isAvailable != null && isAvailable) {
               await MapLauncher.showDirections(
                 mapType: MapType.google,
-                origin: Coords(
-                    position.latitude, position.longitude), // Localização atual
+                origin: Coords(position.latitude, position.longitude),
                 destinationTitle:
                     '${address.logradouro}, ${address.localidade}',
-                destination:
-                    Coords(-23.550520, -46.633308), // Coordenadas do destino
+                destination: Coords(-23.550520, -46.633308),
               );
             }
           },
